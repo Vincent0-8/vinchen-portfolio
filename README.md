@@ -1,6 +1,6 @@
 # Vincent Chen — Personal Portfolio
 
-Personal portfolio web application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. 09/02/2026 - Last Update
+Personal portfolio web application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. Last Update - 09/02/2026 
 
 🔗 **Live Demo:** [https://vincent-portfolio.vercel.app](https://vincent-portfolio.vercel.app)
 
