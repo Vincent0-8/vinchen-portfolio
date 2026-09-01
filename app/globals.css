@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+
+  /* Colors — these become Tailwind utilities: text-accent, bg-surface, etc. */
+
+  /* Accent — adjust this one value to repaint the whole site */
+  --color-accent: #6c63ff;        /* violet-purple */
+  --color-accent-light: #ede9ff;  /* for glow/bg tints */
+  --color-accent-dark: #4f46e5;   /* hover states */
+
+  --color-surface: #ffffff;       /* card/panel backgrounds */
+  --color-border: #e8e4de;        /* subtle borders */
+
+  /* Text */
+  --color-text-primary: #1a1a2e;  /* near-black with warm blue tint */
+  --color-text-secondary: #6b7280;/* muted gray for supporting text */
+}
+
+
+/* ============================================================
+   DESIGN TOKENS
+   All color, font, and spacing decisions live here.
+   Change a token here → updates everywhere.
+   ============================================================ */
+
+:root {
+  /* Color palette — light mode only */
+  --color-bg: #f8f7f4;           /* warm off-white, softer than pure white */
+
+  /* Scrollbar */
+  --scrollbar-width: 6px;
+  --scrollbar-track: var(--color-bg);
+  --scrollbar-thumb: var(--color-accent);
+  --scrollbar-thumb-hover: var(--color-accent-dark);
+}
+
+/* GLOBAL RESET + BASE */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   Works on Chrome/Edge/Safari (webkit). Firefox uses
+   scrollbar-color which is also set below.
+   ============================================================ */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Chrome / Edge / Safari */
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent) 0%,
+    var(--color-accent-dark) 100%
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* SECTION SPACING */
+
+.section {
+  padding-block: 3rem;
+}
+
+/* CUSTOM BUTTON STYLES (Neo-brutalism offset shadow) */
+
+.btn-offset {
+  outline: none;
+  border: 1px solid var(--color-accent);
+  transition: all 0.2s ease;
+}
+
+.btn-offset:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0 0 var(--color-accent);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* MODAL PORTAL ANIMATION */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
