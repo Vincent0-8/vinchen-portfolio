@@ -116,6 +116,23 @@ body {
   padding-inline: 1.5rem;
 }
 
+/* NAVBAR INITIAL SLIDE-DOWN ANIMATION */
+
+@keyframes navbarSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-navbar-in {
+  animation: navbarSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* MODAL PORTAL ANIMATION */
 
 @keyframes fadeIn {

@@ -12,7 +12,7 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // navbar visibility logic
+      // Do not hide navbar if mobile menu is open
       if (isMenuOpen) return;
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
@@ -28,19 +28,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMenuOpen]);
 
-  const navbarClasses = isVisible
-    ? "translate-y-0 opacity-100"
-    : "-translate-y-full opacity-0";
-
   return (
     <header
-      data-aos="fade-down"
-      data-aos-duration="600"
-      className={`sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-border/40 flex justify-center transition-all duration-300 ${navbarClasses}`}
+      className={`sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-(--color-border) flex justify-center animate-navbar-in transition-transform duration-300 will-change-transform ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
       <nav className="container h-20 flex items-center justify-between gap-8 relative">
         {/* 1. Logo SVG */}
-        <a href="/" className="no-underline">
+        <a href="/" className="no-underline" aria-label="Vincent Home">
           <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <polygon
               points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5"

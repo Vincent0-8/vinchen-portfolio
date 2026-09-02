@@ -6,8 +6,8 @@ export default function Hero() {
     <section
       id="hero"
       data-aos="fade-up"
-      data-aos-delay="650"
-      data-aos-duration="900"
+      data-aos-delay="200"
+      data-aos-duration="600"
       className="container pt-12 pb-20 md:pt-20 md:pb-28"
     >
       {/* 1. Header Row: Avatar + Name + Social Icons */}
