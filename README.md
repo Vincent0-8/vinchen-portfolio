@@ -1,12 +1,10 @@
 # Vincent Chen — Personal Portfolio
 
-Personal portfolio web application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**.
-
- **Live Demo:** [https://vinchen-portfolio.vercel.app](https://vinchen-portfolio.vercel.app)
+## **Live Demo:** [https://vinchen-portfolio.vercel.app](https://vinchen-portfolio.vercel.app)
 
 ---
 
-## Tech Stack
+### Tech Stack
 
 - **Framework:** Next.js (App Router)
 - **Language:** TypeScript
@@ -17,7 +15,7 @@ Personal portfolio web application built with **Next.js (App Router)**, **TypeSc
 
 ---
 
-## Author
+### Author
 
 **Vincent Chen**
 - GitHub: [@Vincent0-8](https://github.com/Vincent0-8)
