@@ -45,7 +45,6 @@ export default function Projects() {
 
   const [isZoomOpen, setIsZoomOpen] = useState(false);
 
-  // Lock body scroll and listen for Escape key when modal is open
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsZoomOpen(false);

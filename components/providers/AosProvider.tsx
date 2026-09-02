@@ -7,10 +7,10 @@ import "aos/dist/aos.css";
 export default function AosProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     AOS.init({
-      duration: 900, // Gerakan mengambang halus sinematik
+      duration: 900,
       once: true,
-      easing: "ease-out-quart", // Kurva pengereman halus
-      offset: 140, // Muncul pas saat 140px masuk ke viewport
+      easing: "ease-out-quart", 
+      offset: 140, 
     });
   }, []);
 

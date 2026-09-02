@@ -12,7 +12,7 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Do not hide navbar if mobile menu is open
+      // navbar visibility logic
       if (isMenuOpen) return;
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
