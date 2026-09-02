@@ -18,7 +18,13 @@
 ### Author
 
 **Vincent Chen**
-- GitHub: [@Vincent0-8](https://github.com/Vincent0-8)
 - LinkedIn: [Vincent Chen](https://www.linkedin.com/in/vincent-chenn/)
 - Email: [chenvincent.846@gmail.com](mailto:chenvincent.846@gmail.com)
+
+### Upcoming Development 
+
+- Engineer Career Experience Section
+- Certification Section  
+- Route Implementation for sections
+- Dark Mode - Next-themes + TailwindCSS
 
