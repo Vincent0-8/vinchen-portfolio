@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vincentchen.dev"),
+  metadataBase: new URL("https://vinchen-portfolio.vercel.app"),
   title: "Vincent Chen | Fullstack Web Engineer",
   description:
     "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vincentchen.dev",
+    url: "https://vinchen-portfolio.vercel.app",
     title: "Vincent Chen | Fullstack Web Engineer",
     description:
       "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
