@@ -15,12 +15,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vinchen-portfolio.vercel.app"),
-  title: "Vincent Chen | Fullstack Web Engineer",
+  title: "Vincent Chen | Full-stack Web Engineer",
   description:
     "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
   keywords: [
     "Vincent Chen",
-    "Fullstack Web Engineer",
+    "Full-stack Web Engineer",
     "Software Engineer",
     "React",
     "TypeScript",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://vinchen-portfolio.vercel.app",
-    title: "Vincent Chen | Fullstack Web Engineer",
+    title: "Vincent Chen | Full-stack Web Engineer",
     description:
       "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
     siteName: "Vincent Chen Portfolio",
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               history.scrollRestoration = "manual";
               window.scrollTo(0, 0);
               console.log(
-                "%cVincent Chen | Fullstack Web Engineer\\n%cDesigned and developed with Next.js, TypeScript & Tailwind CSS.\\nContact: chenvincent.846@gmail.com",
+                "%cVincent Chen | Full-stack Web Engineer\\n%cDesigned and developed with Next.js, TypeScript & Tailwind CSS.\\nContact: chenvincent.846@gmail.com",
                 "color: #6c63ff; font-weight: bold; font-size: 14px;",
                 "color: #6b7280; font-size: 12px;"
               );

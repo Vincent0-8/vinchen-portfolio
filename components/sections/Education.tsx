@@ -18,40 +18,35 @@ export default function Education() {
           {educationList.map((item) => (
             <div key={item.id} className="relative group">
               {/* Timeline Dot Marker */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-white border-3 border-accent group-hover:bg-accent group-hover:scale-125 transition-all shadow-sm" />
+              <div className="absolute -left-8.25 sm:-left-10.25 top-1 w-4 h-4 rounded-full bg-white border-3 border-accent group-hover:bg-accent group-hover:scale-125 transition-all shadow-sm" />
 
-              {/* Header: Degree & Period */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
-                <h3 className="text-md sm:text-xl font-bold text-(--color-text-primary) group-hover:text-accent transition-colors flex items-center gap-2">
-                  <TbSchool className="text-accent shrink-0" size={22} />
-                  {item.degree}
-                </h3>
-                <span className="text-sm sm:text-md 8font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full w-fit">
-                  {item.period}
-                </span>
-              </div>
-
-              {/* Institution & Location */}
-              <p className="text-sm font-medium text-(--color-text-secondary) mb-3">
-                {item.institution} • {item.location}
-              </p>
-
-              {/* Description */}
-              <p className="text-sm text-(--color-text-secondary) leading-relaxed mb-4">
-                {item.description}
-              </p>
-
-              {/* Focus Topics / Pills */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {item.focus.map((topic) => (
-                  <span
-                    key={topic}
-                    className="text-xs font-medium px-2.5 py-1 bg-(--color-surface) text-(--color-text-secondary) rounded-md border border-(--color-border)"
-                  >
-                    {topic}
+                {/* Header: Degree & Period */}
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
+                  <h3 className="text-md sm:text-xl font-bold text-(--color-text-primary) group-hover:text-accent transition-colors flex items-center gap-2">
+                    <TbSchool className="text-accent shrink-0" size={22} />
+                    {item.degree}
+                  </h3>
+                  <span className="text-sm sm:text-md font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full w-fit">
+                    {item.period}
                   </span>
-                ))}
-              </div>
+                </div>
+
+                {/* Institution & Location */}
+                <p className="text-sm font-medium text-(--color-text-secondary) mb-3">
+                  {item.institution} • {item.location}
+                </p>
+
+                {/* Focus Topics / Pills */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {item.focus.map((topic) => (
+                    <span
+                      key={topic}
+                      className="text-xs font-medium px-2.5 py-1 bg-(--color-surface) text-(--color-text-secondary) rounded-md border border-(--color-border)"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
             </div>
           ))}
         </div>

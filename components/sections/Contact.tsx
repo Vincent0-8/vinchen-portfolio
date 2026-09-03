@@ -105,7 +105,7 @@ export default function Contact() {
                 GitHub
               </h3>
               <p className="text-xs text-(--color-text-secondary) mb-6">
-                Explore my codebases and fullstack repositories.
+                Explore my codebases and Full-stack repositories.
               </p>
             </div>
 

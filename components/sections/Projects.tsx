@@ -233,23 +233,25 @@ export default function Projects() {
       {isZoomOpen && typeof document !== "undefined" && createPortal(
         <div
           onClick={() => setIsZoomOpen(false)}
-          className="fixed inset-0 z-999 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-100 bg-black/90 backdrop-blur-md flex items-center justify-center overflow-y-auto"
           style={{ animation: "fadeIn 0.2s ease" }}
         >
-          {/* Close Button */}
-          <button
-            onClick={() => setIsZoomOpen(false)}
-            aria-label="Close zoom modal"
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2.5 rounded-full transition-colors cursor-pointer"
-          >
-            <TbX size={28} />
-          </button>
-
+         
           {/* Fullscreen Image — stopPropagation so clicking image doesn't close modal */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="relative max-w-6xl max-h-[85dvh] w-full flex flex-col items-center justify-center"
           >
+
+            {/* Close Button */}
+            <button
+              onClick={() => setIsZoomOpen(false)}
+              aria-label="Close zoom modal"
+              className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors cursor-pointer"
+            >
+              <TbX size={28} />
+            </button>
+
             <img
               src={currentScreenshot.imageUrl}
               alt={currentScreenshot.title}

@@ -65,14 +65,14 @@ export default function Hero() {
       {/* 2. Headline Title */}
       <div className="mb-5 flex">
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-(--color-text-primary)">
-          Fullstack Web Engineer <span className="text-(--color-text-secondary) font-normal">— MERN Stack & TypeScript </span>
+          Full-stack Web Engineer <span className="text-(--color-text-secondary) font-normal">— MERN Stack & TypeScript </span>
         </h2>
        
       </div>
 
       {/* 3. Bio Description */}
       <p className="text-(--color-text-secondary) leading-relaxed text-justify text-base sm:text-xl mb-8">
-        Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with{" "}
+        Full-stack Web Engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with{" "}
         <span className="inline-flex items-center font-medium text-accent bg-accent/10 px-2 py-0.5 rounded text-xs sm:text-sm">
           React
         </span>{" "}

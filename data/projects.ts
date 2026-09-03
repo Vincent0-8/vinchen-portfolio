@@ -5,7 +5,7 @@ export const projects: Project[] = [
     slug: "catalyst-marketplace",
     title: "Catalyst Marketplace",
     description:
-      "Fullstack fashion e-commerce marketplace built with React, Redux Toolkit, Node.js, Express, TypeScript, and MongoDB. Features product catalog with search/filter, cart & wishlist management, multi-step checkout with server-side stock and price validation, order history, JWT authentication, and API security hardening (rate limiting, CORS, input sanitization).",
+      "Full-stack fashion e-commerce marketplace built with React, Redux Toolkit, Node.js, Express, TypeScript, and MongoDB. Features product catalog with search/filter, cart & wishlist management, multi-step checkout with server-side stock and price validation, order history, JWT authentication, and API security hardening (rate limiting, CORS, input sanitization).",
     tags: [
       "React",
       "Redux Toolkit",

@@ -19,6 +19,6 @@ export const educationList: EducationItem[] = [
     location: "Batam, Indonesia",
     description:
       "Built strong foundational skills in visual design principles, user interface aesthetics, vector graphics, and digital media production.",
-    focus: ["UI/UX Foundations", "Adobe Illustrator", "Adobe Photoshop", "Visual Design"],
+    focus: ["UI/UX Foundations", "Adobe Illustrator", "Adobe Photoshop", "Multimedia"],
   },
 ];

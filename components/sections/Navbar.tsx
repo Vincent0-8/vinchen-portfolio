@@ -58,9 +58,10 @@ export default function Navbar() {
 
         {/* 2. Desktop Navigation */}
         <ul className="list-none hidden md:flex gap-8">
-          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#education">Education</a></li>
           <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#skills">Skills</a></li>
           <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#projects">Projects</a></li>
+          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#education">Education</a></li>
+          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#certifications">Certifications</a></li>
           <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#contact">Contact</a></li>
         </ul>
 
@@ -81,13 +82,6 @@ export default function Navbar() {
             <a
               onClick={() => setIsMenuOpen(false)}
               className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
-              href="#education"
-            >
-              Education
-            </a>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
               href="#skills"
             >
               Skills
@@ -98,6 +92,20 @@ export default function Navbar() {
               href="#projects"
             >
               Projects
+            </a>
+            <a
+              onClick={() => setIsMenuOpen(false)}
+              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
+              href="#education"
+            >
+              Education
+            </a>
+            <a
+              onClick={() => setIsMenuOpen(false)}
+              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
+              href="#certifications"
+            >
+              Certifications
             </a>
             <a
               onClick={() => setIsMenuOpen(false)}
