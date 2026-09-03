@@ -43,3 +43,13 @@ export interface SkillCategory {
   category: string;
   skills: SkillItem[];
 }
+
+export interface CertificationItem {
+  id: string;
+  title: string;
+  issuer: string;
+  issueDate: string;
+  imageUrl?: string;
+  credentialUrl?: string;
+  skills?: string[];
+}
