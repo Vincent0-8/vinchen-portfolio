@@ -4,6 +4,8 @@
 
 ---
 
+Personal Website for professional profile and projects showcase. 
+
 ### Tech Stack
 
 - **Framework:** Next.js (App Router)
@@ -15,16 +17,14 @@
 
 ---
 
-### Author
+### Get in Touch!
 
-**Vincent Chen**
+- Portfolio: [https://vinchen-portfolio.vercel.app](https://vinchen-portfolio.vercel.app)
 - LinkedIn: [Vincent Chen](https://www.linkedin.com/in/vincent-chenn/)
-- Email: [chenvincent.846@gmail.com](mailto:chenvincent.846@gmail.com)
+- Email: [job.vinchen@gmail.com](mailto:job.vinchen@gmail.com)
 
-### Upcoming Development 
+### Future Development 
 
 - Engineer Career Experience Section
-- Certification Section  
-- Route Implementation for sections
-- Dark Mode - Next-themes + TailwindCSS
+- Light/Dark mode 
 
