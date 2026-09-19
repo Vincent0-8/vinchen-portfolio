@@ -50,7 +50,7 @@ export default function Certification() {
                             <Image
                             src={cert.imageUrl}
                             alt={cert.title}
-                            fill
+                            fill={true}
                             className="object-cover"
                             />
                         </div>

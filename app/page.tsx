@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="flex-1 w-full">
       <Hero />
-      <Skills />
       <Projects />
+      <Skills />
       <Education />
       <Certification />
       <Contact />

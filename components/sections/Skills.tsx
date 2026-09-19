@@ -23,7 +23,7 @@ export default function Skills() {
               </h3>
 
               {/* Flexbox Pills Row */}
-              <div className="flex flex-wrap gap-2.5 sm:gap-3">
+              <div className="flex flex-wrap gap-2.5 sm:gap-4">
                 {group.skills.map((skill) => {
                   const Icon = skill.icon;
                   return (

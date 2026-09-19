@@ -2,269 +2,317 @@
 
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 import { projects } from "@/data/projects";
-import { TbExternalLink, TbBrandGithub, TbX, TbZoomIn, TbZoomInArea } from "react-icons/tb";
+import { 
+  TbExternalLink, 
+  TbBrandGithub, 
+  TbX, 
+  TbZoomIn, 
+  TbZoomInArea, 
+  TbArrowRight,
+  TbChevronLeft,
+  TbChevronRight 
+} from "react-icons/tb";
+import { Project } from "@/types"
 
+interface ProjectCardProps {
+  project: Project;
+  onClick: () => void;
+}
 
-export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(0)
-  const [selectedImage, setSelectedImage] = useState(0);
-
-  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const currentProject = projects[selectedProject];
-  const currentScreenshot = currentProject.screenshots[selectedImage] || currentProject.screenshots[0];
-
-  const scrollThumbnailIntoView = (index: number) => {
-    const el = thumbnailRefs.current[index];
-    if (el) {
-      el.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    }
-  };
-
-  const handleSelectProject = (index: number) => {
-    setSelectedProject(index);
-    setSelectedImage(0);
-  };
-
-  const handlePrevImage = () => {
-    const nextIndex = selectedImage === 0 ? currentProject.screenshots.length - 1 : selectedImage - 1;
-    setSelectedImage(nextIndex);
-    scrollThumbnailIntoView(nextIndex);
-  };
-
-  const handleNextImage = () => {
-    const nextIndex = selectedImage === currentProject.screenshots.length - 1 ? 0 : selectedImage + 1;
-    setSelectedImage(nextIndex);
-    scrollThumbnailIntoView(nextIndex);
-  };
-
-  const [isZoomOpen, setIsZoomOpen] = useState(false);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsZoomOpen(false);
-    };
-
-    if (isZoomOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isZoomOpen]);
-
-
-
+export function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
-    <section id="projects" data-aos="fade-up" className="section">
-      <div className="container">
-        {/* Section Header */}
-        <p className="text-accent text-sm font-medium text-center tracking-widest uppercase mb-2">
-          Recent Works
-        </p>
-        <h2 className="text-3xl font-bold text-center text-(--color-text-primary) mb-8">
-          My Portfolio
-        </h2>
+    <div 
+      className="group flex flex-col overflow-hidden rounded-xl border border-(--color-border) bg-white transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5"
+    >
+      <div className="relative aspect-video w-full overflow-hidden bg-slate-100 border-b border-(--color-border)">
+        <img 
+          src={project.imageUrl} 
+          alt={project.title} 
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
-        {/* Projects Filter */}
-        <div className="flex justify-center gap-3 mb-8">
-          {projects.map((project, index) => (
-            <button
-            key={project.slug}
-            onClick={() => handleSelectProject(index)}
-            className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer 
-              ${selectedProject === index
-                ? "bg-(--color-accent) text-white shadow-md"
-                : "bg-white text-(--color-text-primary) border border-(--color-border) hover:border-accent hover:text-(--color-text-primary)"
-              }`}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <h3 className="text-xl font-bold text-(--color-text-primary) transition-colors group-hover:text-accent">
+          {project.title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-(--color-text-secondary) line-clamp-2">
+          {project.description}
+        </p>
+
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.tags.map((tag) => (
+            <span 
+              key={tag} 
+              className="rounded-md border border-(--color-border) bg-(--color-bg) px-2.5 py-1 text-xs font-medium text-(--color-text-secondary)"
             >
-              {project.title}
-            </button>
+              {tag}
+            </span>
           ))}
         </div>
 
-        {/* Projects Showcase */}
-        <div className="bg-white border border-(--color-border) rounded-xl p-6 shadow-sm">
+        <div className="mt-5 flex items-center justify-between border-t border-(--color-border) pt-3">
+          <button 
+            type="button"
+            onClick={onClick} 
+            className="flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1 cursor-pointer"
+          >
+            View More <TbArrowRight className="text-base" />
+          </button>
+        </div>
+      </div>
+    </div>  
+  );
+} 
 
-          {/* Carousel Navigation: Prev Button + Thumbnail Strip + Next Button */}
-          <div className="flex items-center gap-2 sm:gap-3 mb-6">
+interface ProjectModalProps {
+  project: Project;
+  onClose: () => void;
+}
 
-            {/* Previous Button */}
-            <button
-              onClick={handlePrevImage}
-              aria-label="Previous screenshot"
-              className="w-10 h-10 shrink-0 bg-accent text-white rounded-lg flex items-center justify-center hover:bg-(--color-accent-dark) transition-colors cursor-pointer text-lg font-bold"
-            >
-              ‹
-            </button>
+export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
-            {/* Thumbnail Strip */}
-            <div className="flex gap-2 sm:gap-3 overflow-x-auto py-3 px-1 flex-1 items-center">
-              {currentProject.screenshots.map((shot, index) => (
-                <button
-                  key={index}
-                  ref={(el) => {
-                    thumbnailRefs.current[index] = el;
-                  }}
-                  onClick={() => {
-                    setSelectedImage(index);
-                    scrollThumbnailIntoView(index);
-                  }}
-                  className={`relative shrink-0 w-16 h-12 sm:w-24 sm:h-16 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
-                    selectedImage === index
-                      ? "border-accent scale-105 shadow-sm"
-                      : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
-                >
-                  <img
-                    src={shot.imageUrl}
-                    alt={shot.title}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+  const screenshots = project.screenshots && project.screenshots.length > 0
+    ? project.screenshots
+    : [{ title: project.title, imageUrl: project.imageUrl }];
 
-            {/* Next Button */}
-            <button
-              onClick={handleNextImage}
-              aria-label="Next screenshot"
-              className="w-10 h-10 shrink-0 bg-accent text-white rounded-lg flex items-center justify-center hover:bg-(--color-accent-dark) transition-colors cursor-pointer text-lg font-bold"
-            >
-              ›
-            </button>
-          </div>
+  const currentScreenshot = screenshots[currentImgIndex] || screenshots[0];
 
-          {/* Main Screen Viewport */}
-          <div onClick={() => setIsZoomOpen(true)} className="relative w-full aspect-video max-h-105 md:max-h-120 bg-(--color-bg) rounded-xl overflow-hidden border border-(--color-border) flex items-center justify-center mb-6 cursor-zoom-in group">
-            {/* Active Screenshot */}
-            <img
-              src={currentScreenshot.imageUrl}
-              alt={currentScreenshot.title}
-              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-            />
+  const handlePrev = () => {
+    setCurrentImgIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+  };
 
-            {/* Caption */}
-            <div className="absolute bottom-3 left-3 bg-text-primary/85 backdrop-blur-md text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-md flex items-center gap-1.5">
-              <TbZoomIn size={16} />
-              {currentScreenshot.title}
-            </div>
-          </div>
+  const handleNext = () => {
+    setCurrentImgIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+  };
 
-          {/* Project Info & Actions */}
-          <div className="space-y-4 pt-2">
-            
-            {/* Header Row */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h3 className="text-2xl font-bold text-(--color-text-primary)">
-                {currentProject.title}
-              </h3>
+  // Tutup modal kalau tombol Escape ditekan
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
 
-              {/* Action Links */}
-              <div className="flex items-center gap-3 flex-wrap">
-                {/* 1. Live Preview Button */}
-                <a
-                  href={currentProject.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="no-underline inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-(--color-accent-dark) transition-colors shadow-sm"
-                >
-                  <TbExternalLink size={18} />
-                  Live Preview
-                </a>
+  // Lock scroll background saat modal buka
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
 
-                {/* 2. GitHub Client Repo */}
-                <a
-                  href={currentProject.githubClient}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="no-underline inline-flex items-center gap-2 bg-white text-(--color-text-primary) border border-(--color-border) px-4 py-2.5 rounded-lg text-sm font-medium hover:border-accent transition-colors"
-                >
-                  <TbBrandGithub size={18} />
-                  Client Repo
-                </a>
+  return createPortal(
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+      <div 
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" 
+        onClick={onClose} 
+      />
 
-                {/* 3. GitHub Server Repo */}
-                {currentProject.githubServer && (
-                  <a
-                    href={currentProject.githubServer}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="no-underline inline-flex items-center gap-2 bg-white text-(--color-text-primary) border border-(--color-border) px-4 py-2.5 rounded-lg text-sm font-medium hover:border-accent transition-colors"
-                  >
-                    <TbBrandGithub size={18} />
-                    Server Repo
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-(--color-text-secondary) text-sm sm:text-base leading-relaxed">
-              {currentProject.description}
-            </p>
-
-            {/* Tech Stack / Leveraged Skills Badges */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {currentProject.tags.map((tag) => (
+      <div className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-(--color-border) bg-white p-5 sm:p-8 shadow-2xl space-y-6">
+        <div className="flex items-start justify-between gap-4 pr-10">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-(--color-text-primary)">
+              {project.title}
+            </h2>
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-medium px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20"
+                  className="rounded-md border border-(--color-border) bg-(--color-bg) px-2.5 py-1 text-xs font-medium text-(--color-text-secondary)"
                 >
                   {tag}
                 </span>
               ))}
             </div>
           </div>
+
+          {/* Tombol Close silang */}
+          <button 
+            type="button"
+            onClick={onClose}
+            aria-label="Close modal"
+            className="absolute top-4 right-4 z-20 rounded-full bg-slate-100 p-2 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-slate-200 transition-colors cursor-pointer"
+          >
+            <TbX className="text-xl" />
+          </button>
+        </div>
+
+        {/* Screenshot Viewport with Prev / Next Navigation */}
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-(--color-border) bg-slate-400/30 flex items-center justify-center group">
+          <img 
+            src={currentScreenshot.imageUrl} 
+            alt={currentScreenshot.title} 
+            className="h-full w-full object-contain"
+          />
+
+          {/* Tombol Prev */}
+          {screenshots.length > 1 && (
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous screenshot"
+              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 hover:bg-black/85 text-white p-2.5 backdrop-blur-xs transition-all opacity-80 group-hover:opacity-100 cursor-pointer shadow-md"
+            >
+              <TbChevronLeft className="text-xl" />
+            </button>
+          )}
+
+          {/* Tombol Next */}
+          {screenshots.length > 1 && (
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next screenshot"
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 hover:bg-black/85 text-white p-2.5 backdrop-blur-xs transition-all opacity-80 group-hover:opacity-100 cursor-pointer shadow-md"
+            >
+              <TbChevronRight className="text-xl" />
+            </button>
+          )}
+
+          {/* Screenshot Caption Badge */}
+          <div className="absolute bottom-3 left-3 rounded-md bg-black/70 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-white flex items-center gap-2">
+            <span>{currentScreenshot.title}</span>
+            {screenshots.length > 1 && (
+              <span className="text-slate-400 font-normal">
+                ({currentImgIndex + 1} of {screenshots.length})
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Thumbnail Strip (hanya muncul kalau screenshot lebih dari 1) */}
+        {screenshots.length > 1 && (
+          <div className="flex gap-2.5 overflow-x-auto pb-1">
+            {screenshots.map((shot, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentImgIndex(idx)}
+                className={`relative h-14 sm:h-16 aspect-video shrink-0 overflow-hidden rounded-lg border-2 transition-all cursor-pointer ${
+                  currentImgIndex === idx
+                    ? "border-accent shadow-xs scale-105"
+                    : "border-transparent opacity-60 hover:opacity-100"
+                }`}
+              >
+                <img
+                  src={shot.imageUrl}
+                  alt={shot.title}
+                  className="h-full w-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Project Description */}
+        <div className="border-t border-(--color-border) pt-4">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-accent mb-2">
+            About This Project
+          </h4>
+          <p className="text-(--color-text-secondary) text-sm sm:text-base leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Action Buttons: Live Preview & GitHub Repos */}
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-white text-sm font-medium hover:bg-(--color-accent-dark) transition-colors shadow-xs"
+            >
+              <TbExternalLink size={18} />
+              <span>Live Preview</span>
+            </a>
+          )}
+
+          {project.githubClient && (
+            <a
+              href={project.githubClient}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-(--color-border) bg-white text-(--color-text-primary) text-sm font-medium hover:border-accent hover:text-accent transition-colors"
+            >
+              <TbBrandGithub size={18} />
+              <span>Client Repo</span>
+            </a>
+          )}
+
+          {project.githubServer && (
+            <a
+              href={project.githubServer}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-(--color-border) bg-white text-(--color-text-primary) text-sm font-medium hover:border-accent hover:text-accent transition-colors"
+            >
+              <TbBrandGithub size={18} />
+              <span>Server Repo</span>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+
+export default function Projects() {
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const featuredProjects = projects.filter((p) => p.featured);
+
+  return (
+    <section id="projects" data-aos="fade-up" className="section py-16 sm:py-24">
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <p className="text-accent text-sm font-semibold tracking-widest uppercase mb-2">
+            Selected Work
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-(--color-text-primary) mb-4">
+            Featured Projects
+          </h2>
+          <p className="text-(--color-text-secondary) text-sm sm:text-base leading-relaxed">
+            A showcase of recent web applications and platforms I&apos;ve built, focusing on performance, usability, and modern architecture.
+          </p>
+        </div>
+
+        {/* Featured Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+          {featuredProjects.map((project) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              onClick={() => setActiveProject(project)}
+            />
+          ))}
+        </div>
+
+        {/* Explore All Projects CTA */}
+        <div className="flex justify-center">
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-(--color-border) bg-white hover:bg-(--color-accent) text-(--color-text-primary) hover:text-white font-medium transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 cursor-pointer"
+          >
+            <span>Explore All Projects ({projects.length})</span>
+            <TbArrowRight className="text-(--color-text-primary) transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white " />
+          </Link>
         </div>
       </div>
 
-      {/* Fullscreen Lightbox Zoom Modal — rendered via Portal to escape AOS transform context */}
-      {isZoomOpen && typeof document !== "undefined" && createPortal(
-        <div
-          onClick={() => setIsZoomOpen(false)}
-          className="fixed inset-0 z-100 bg-black/90 backdrop-blur-md flex items-center justify-center overflow-y-auto"
-          style={{ animation: "fadeIn 0.2s ease" }}
-        >
-         
-          {/* Fullscreen Image — stopPropagation so clicking image doesn't close modal */}
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-6xl max-h-[85dvh] w-full flex flex-col items-center justify-center"
-          >
-
-            {/* Close Button */}
-            <button
-              onClick={() => setIsZoomOpen(false)}
-              aria-label="Close zoom modal"
-              className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors cursor-pointer"
-            >
-              <TbX size={28} />
-            </button>
-
-            <img
-              src={currentScreenshot.imageUrl}
-              alt={currentScreenshot.title}
-              className="max-h-[80dvh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
-            />
-            <p className="text-white/90 text-sm font-medium mt-3 text-center">
-              {currentScreenshot.title}
-            </p>
-          </div>
-        </div>,
-        document.body
+      {activeProject && (
+        <ProjectModal
+          project={activeProject}
+          onClose={() => setActiveProject(null)}
+        />
       )}
-
     </section>
   );
 }

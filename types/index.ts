@@ -18,7 +18,6 @@ export interface Project {
   screenshots: ProjectScreenshot[];
 }
 
-
 export interface NavLink {
   label: string; 
   href: string;

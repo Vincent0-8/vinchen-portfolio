@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TbBrandGithub, TbBrandLinkedin, TbMail, TbArrowDown } from "react-icons/tb";
+import { TbBrandGithub, TbBrandLinkedin, TbMail, TbArrowDown, TbArrowRight } from "react-icons/tb";
 
 export default function Hero() {
   return (
@@ -92,11 +92,11 @@ export default function Hero() {
       {/* 4. Action Button */}
       <div>
         <a
-          href="#projects"
-          className="no-underline inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-(--color-accent-dark) transition-colors shadow-sm cursor-pointer"
+          href="/assets/resume/vincent-resume.pdf"
+          className=" group no-underline inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-(--color-accent-dark) transition-colors shadow-sm cursor-pointer"
         >
-          View Projects
-          <TbArrowDown size={16} />
+          View Resume
+          <TbArrowRight className="transition-transform duration-200 group-hover:translate-x-1" size={16} />
         </a>
       </div>
     </section>
