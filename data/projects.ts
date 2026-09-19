@@ -8,14 +8,14 @@ export const projects: Project[] = [
     description:
       "Fully responsive personal portfolio built with Next.js (App Router) and TypeScript, styled with Tailwind CSS. Features interactive project showcase with thumbnail carousel, modal lightbox previews, scroll-triggered animations (AOS), and strict TypeScript interfaces across all data models.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vercel"],
-    githubClient: "https://github.com/Vincent0-8/vincent-portfolio",
+    githubClient: "https://github.com/Vincent0-8/vinchen-portfolio",
     liveUrl: "https://vinchen-portfolio.vercel.app/",
-    imageUrl: "/images/projects/catalyst/Hero.webp", // TODO: Replace with portfolio screenshot
+    imageUrl: "/images/projects/personal-web/hero.webp",
     featured: true,
     screenshots: [
       {
         title: "Portfolio Hero Section",
-        imageUrl: "/images/projects/catalyst/Hero.webp", // TODO: Replace
+        imageUrl: "/images/projects/personal-web/hero.webp",
       },
     ],
   },
@@ -33,7 +33,6 @@ export const projects: Project[] = [
       "Node.js",
       "Express",
       "MongoDB",
-      "JWT",
       "Tailwind CSS",
     ],
     githubClient: "https://github.com/Vincent0-8/Catalyst-client",
@@ -87,7 +86,7 @@ export const projects: Project[] = [
     title: "Cent Graphics",
     description:
       "Solo-built color palette web app using the MERN stack. Features JWT authentication, backend-synced palette collections, and one-click hex code copying — built entirely without tutorials.",
-    tags: ["React", "Vite", "Node.js", "Express", "MongoDB", "JWT"],
+    tags: ["React", "Vite", "Node.js", "Express", "MongoDB"],
     githubClient: "https://github.com/Vincent0-8/cent-graphics-client",
     githubServer: "https://github.com/Vincent0-8/cent-graphics-server",
     liveUrl: "https://cent-graphics.vercel.app/",

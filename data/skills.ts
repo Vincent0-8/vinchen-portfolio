@@ -1,6 +1,8 @@
 import { SkillCategory } from "@/types";
-import { SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5, SiCss, SiVite, SiNodedotjs, SiExpress, SiMongodb, SiRedux, SiGit, SiGithub, SiFigma, SiVercel, SiRailway } from "react-icons/si";
+import { SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5, SiCss, SiVite, SiNodedotjs, SiExpress, SiMongodb, SiRedux, SiGit, SiGithub, SiFigma, SiVercel, SiRailway, SiNuxt } from "react-icons/si";
 import { TbApi, TbBrandAdobePhotoshop, TbBrandAdobeIllustrator } from "react-icons/tb";
+import { VscCode } from "react-icons/vsc";
+import { FaNpm, FaVuejs } from "react-icons/fa";
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -10,6 +12,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Vue.js", icon: FaVuejs, color: "#41B883" },
+      { name: "Nuxt.js", icon: SiNuxt, color: "#00DC82" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
       { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
       { name: "CSS3", icon: SiCss, color: "#1572B6" },
@@ -27,12 +31,14 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    category: "VERSION CONTROL & TOOLS",
+    category: "DEVELOPMENT TOOLS & VERSION CONTROL",
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitHub", icon: SiGithub, color: "#181717" },
       { name: "Vercel", icon: SiVercel, color: "#000000" },
       { name: "Railway", icon: SiRailway, color: "#0B0D0E" },
+      { name: "VS Code", icon: VscCode, color: "#000000"},
+      { name: "npm", icon: FaNpm, color: "#cb3837"},
     ],
   },
   {
