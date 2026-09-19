@@ -17,6 +17,14 @@ export const projects: Project[] = [
         title: "Portfolio Hero Section",
         imageUrl: "/images/projects/personal-web/hero.webp",
       },
+      {
+        title: "Responsive Multi-Device Layout",
+        imageUrl: "/images/projects/personal-web/responsive-personal.webp",
+      },
+      {
+        title: "Lighthouse Performance & SEO Audit",
+        imageUrl: "/images/projects/personal-web/lighthouse-personal.webp",
+      },
     ],
   },
 
