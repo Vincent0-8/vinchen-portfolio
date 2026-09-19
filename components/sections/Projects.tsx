@@ -89,7 +89,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     setCurrentImgIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
   };
 
-  // Tutup modal kalau tombol Escape ditekan
+  // Close modal on Escape key press
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -131,7 +131,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
           </div>
 
-          {/* Tombol Close silang */}
+          {/* Close button */}
           <button 
             type="button"
             onClick={onClose}
@@ -150,7 +150,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="h-full w-full object-contain"
           />
 
-          {/* Tombol Prev */}
+          {/* Previous button */}
           {screenshots.length > 1 && (
             <button
               type="button"
@@ -162,7 +162,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
           )}
 
-          {/* Tombol Next */}
+          {/* Next button */}
           {screenshots.length > 1 && (
             <button
               type="button"
@@ -185,7 +185,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         </div>
 
-        {/* Thumbnail Strip (hanya muncul kalau screenshot lebih dari 1) */}
+        {/* Thumbnail Strip (only shown when multiple screenshots exist) */}
         {screenshots.length > 1 && (
           <div className="flex gap-2.5 overflow-x-auto pb-1">
             {screenshots.map((shot, idx) => (
