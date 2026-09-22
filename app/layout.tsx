@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Vincent Chen" }],
   creator: "Vincent Chen",
+  alternates: {
+    canonical: "https://vincentchenn.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -41,12 +44,21 @@ export const metadata: Metadata = {
     description:
       "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
     siteName: "Vincent Chen Portfolio",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Vincent Chen | Full-stack Web Engineer Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vincent Chen | Full-stack Web Engineer",
     description:
       "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+    images: ["/images/og-image.png"],
   },
   robots: {
     index: true,
@@ -55,9 +67,35 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Vincent Chen",
+    url: "https://vincentchenn.com",
+    jobTitle: "Full-stack Web Engineer",
+    sameAs: [
+      "https://github.com/Vincent0-8",
+      "https://www.linkedin.com/in/vincent-chenn/",
+    ],
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS",
+      "Full-stack Web Development",
+    ],
+  };
+
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
