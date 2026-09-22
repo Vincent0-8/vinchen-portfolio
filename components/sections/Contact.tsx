@@ -5,7 +5,7 @@ import { TbMail, TbBrandLinkedin, TbBrandGithub, TbCopy, TbCheck, TbArrowUpRight
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const email = "chenvincent.846@gmail.com";
+  const email = "me@vincentchenn.com";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);

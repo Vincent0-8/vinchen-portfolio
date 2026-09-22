@@ -9,7 +9,7 @@ export const projects: Project[] = [
       "Fully responsive personal portfolio built with Next.js (App Router) and TypeScript, styled with Tailwind CSS. Features interactive project showcase with thumbnail carousel, modal lightbox previews, scroll-triggered animations (AOS), and strict TypeScript interfaces across all data models.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vercel"],
     githubClient: "https://github.com/Vincent0-8/vinchen-portfolio",
-    liveUrl: "https://vinchen-portfolio.vercel.app/",
+    liveUrl: "https://vincentchenn.com/",
     imageUrl: "/images/projects/personal-web/hero.webp",
     featured: true,
     screenshots: [

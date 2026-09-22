@@ -1,6 +1,6 @@
 # Vincent Chen — Personal Portfolio
 
-## **Live Demo:** [https://vinchen-portfolio.vercel.app](https://vinchen-portfolio.vercel.app)
+## **Live Demo:** [https://vincentchenn.com](https://vincentchenn.com)
 
 ---
 
@@ -19,9 +19,9 @@ Personal Website for professional profile and projects showcase.
 
 ### Get in Touch!
 
-- Portfolio: [https://vinchen-portfolio.vercel.app](https://vinchen-portfolio.vercel.app)
+- Portfolio: [https://vincentchenn.com](https://vincentchenn.com)
 - LinkedIn: [Vincent Chen](https://www.linkedin.com/in/vincent-chenn/)
-- Email: [job.vinchen@gmail.com](mailto:job.vinchen@gmail.com)
+- Email: [me@vincentchenn.com](mailto:me@vincentchenn.com)
 
 ### Future Development 
 

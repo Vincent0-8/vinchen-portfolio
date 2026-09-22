@@ -52,7 +52,7 @@ export default function Hero() {
               <TbBrandLinkedin size={22} />
             </a>
             <a
-              href="mailto:chenvincent.846@gmail.com"
+              href="mailto:me@vincentchenn.com"
               aria-label="Send Email"
               className="hover:text-accent transition-colors"
             >
