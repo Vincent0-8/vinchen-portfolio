@@ -107,7 +107,7 @@ export default function ProjectsPage() {
             All Projects
           </h1>
           <p className="text-(--color-text-secondary) text-sm sm:text-base leading-relaxed">
-            A complete archive of web applications, platforms, and client work I&apos;ve engineered. Filter by tech stack to explore specific technologies.
+            A complete archive of web applications, platforms, and client work I&apos;ve developed. Filter by tech stack to explore specific technologies.
           </p>
         </div>
 

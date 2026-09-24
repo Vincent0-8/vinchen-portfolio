@@ -15,13 +15,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vincentchenn.com"),
-  title: "Vincent Chen | Full-stack Web Engineer",
+  title: "Vincent Chen | Full-stack Web Developer",
   description:
-    "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+    "Full-stack web developer with hands-on experience in MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
   keywords: [
     "Vincent Chen",
-    "Full-stack Web Engineer",
-    "Software Engineer",
+    "Vincent Chenn",
+    "Full-stack Web Developer",
+    "Web Developer",
     "React",
     "TypeScript",
     "Node.js",
@@ -40,24 +41,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://vincentchenn.com",
-    title: "Vincent Chen | Full-stack Web Engineer",
+    title: "Vincent Chen | Full-stack Web Developer",
     description:
-      "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+      "Full-stack web developer with hands-on experience in MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
     siteName: "Vincent Chen Portfolio",
     images: [
       {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vincent Chen | Full-stack Web Engineer Portfolio",
+        alt: "Vincent Chen | Full-stack Web Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vincent Chen | Full-stack Web Engineer",
+    title: "Vincent Chen | Full-stack Web Developer",
     description:
-      "Software engineer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+      "Full-stack web developer with hands-on experience in MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
     images: ["/images/og-image.png"],
   },
   robots: {
@@ -75,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@type": "Person",
     name: "Vincent Chen",
     url: "https://vincentchenn.com",
-    jobTitle: "Full-stack Web Engineer",
+    jobTitle: "Full-stack Web Developer",
     sameAs: [
       "https://github.com/Vincent0-8",
       "https://www.linkedin.com/in/vincent-chenn/",
@@ -105,7 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               history.scrollRestoration = "manual";
               window.scrollTo(0, 0);
               console.log(
-                "%cVincent Chen | Full-stack Web Engineer\\n%cDesigned and developed with Next.js, TypeScript & Tailwind CSS.\\nContact: me@vincentchenn.com",
+                "%cVincent Chen | Full-stack Web Developer\\n%cDesigned and developed with Next.js, TypeScript & Tailwind CSS.\\nContact: me@vincentchenn.com",
                 "color: #6c63ff; font-weight: bold; font-size: 14px;",
                 "color: #6b7280; font-size: 12px;"
               );

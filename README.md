@@ -25,6 +25,6 @@ Personal Website for professional profile and projects showcase.
 
 ### Future Development 
 
-- Engineer Career Experience Section
+- Professional Experience Section
 - Light/Dark mode 
 
