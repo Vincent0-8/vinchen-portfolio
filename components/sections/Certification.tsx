@@ -51,6 +51,7 @@ export default function Certification() {
                             src={cert.imageUrl}
                             alt={cert.title}
                             fill={true}
+                            sizes="(max-width: 640px) 128px, 144px"
                             className="object-cover"
                             />
                         </div>

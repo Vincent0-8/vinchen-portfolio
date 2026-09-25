@@ -30,6 +30,8 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         <img 
           src={project.imageUrl} 
           alt={project.title} 
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
       </div>
@@ -202,6 +204,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <img
                   src={shot.imageUrl}
                   alt={shot.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </button>
