@@ -25,6 +25,10 @@ export const projects: Project[] = [
         title: "Lighthouse Performance & SEO Audit",
         imageUrl: "/images/projects/personal-web/lighthouse-personal.webp",
       },
+      {
+        title: "Google Search Indexing & Favicon",
+        imageUrl: "/images/projects/personal-web/seo-personal.webp",
+      },
     ],
   },
 
