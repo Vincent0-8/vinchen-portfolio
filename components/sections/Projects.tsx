@@ -24,7 +24,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
     <div 
-      className="group flex flex-col overflow-hidden rounded-xl border border-(--color-border) bg-white transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-(--color-border) bg-white transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5"
     >
       <div className="relative aspect-video w-full overflow-hidden bg-slate-100 border-b border-(--color-border)">
         <img 
@@ -42,7 +42,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           {project.description}
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-3.5 mb-5 flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <span 
               key={tag} 
@@ -53,7 +53,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className="mt-5 flex items-center justify-between border-t border-(--color-border) pt-3">
+        <div className="mt-auto flex items-center justify-between border-t border-(--color-border) pt-4">
           <button 
             type="button"
             onClick={onClick} 
@@ -187,7 +187,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* Thumbnail Strip (only shown when multiple screenshots exist) */}
         {screenshots.length > 1 && (
-          <div className="flex gap-2.5 overflow-x-auto pb-1">
+          <div className="flex gap-3 overflow-x-auto py-2.5 px-1 -mx-1">
             {screenshots.map((shot, idx) => (
               <button
                 key={idx}
@@ -210,8 +210,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         )}
 
         {/* Project Description */}
-        <div className="border-t border-(--color-border) pt-4">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-accent mb-2">
+        <div className="border-t border-(--color-border) pt-6">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-accent mb-2.5">
             About This Project
           </h4>
           <p className="text-(--color-text-secondary) text-sm sm:text-base leading-relaxed">
@@ -220,7 +220,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Action Buttons: Live Preview & GitHub Repos */}
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+        <div className="flex flex-wrap items-center gap-3 pt-3">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
