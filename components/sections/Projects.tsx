@@ -26,13 +26,13 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
     <div 
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-(--color-border) bg-white transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5"
     >
-      <div className="relative aspect-video w-full overflow-hidden bg-slate-100 border-b border-(--color-border)">
+      <div className="relative aspect-video w-full overflow-hidden bg-(--color-bg) border-b border-(--color-border)">
         <img 
           src={project.imageUrl} 
           alt={project.title} 
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
