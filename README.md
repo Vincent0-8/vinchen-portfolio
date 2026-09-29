@@ -1,4 +1,4 @@
-# Vincent Chen — Personal Portfolio
+# Vincent Chen — Personal Portfolio 
 
 ## **Live Demo:** [https://vincentchenn.com](https://vincentchenn.com)
 
