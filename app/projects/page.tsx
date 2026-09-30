@@ -27,18 +27,14 @@ export default function ProjectsPage() {
   const [maxIndex, setMaxIndex] = useState(3);
   const STEP_WIDTH = 124; // 112px button (w-28) + 12px gap-3
 
-  // Responsive: calculate max sliding offset according to viewport width
   // Desktop (md): shows 5 buttons (maxIndex = 8 - 5 = 3)
   // Tablet (sm): shows 3 buttons (maxIndex = 8 - 3 = 5)
   // Mobile: shows 2 buttons (maxIndex = 8 - 2 = 6)
   useEffect(() => {
-    // Force instant scroll to top on mount
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     const scrollTimer = setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }, 10);
-
-    // Refresh AOS for route transitions
     AOS.refresh();
 
     const handleResize = () => {
