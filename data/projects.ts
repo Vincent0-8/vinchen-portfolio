@@ -97,7 +97,7 @@ export const projects: Project[] = [
     slug: "cent-graphics",
     title: "Cent Graphics",
     description:
-      "Solo-built color palette web app using the MERN stack. Features JWT authentication, backend-synced palette collections, and one-click hex code copying — built entirely without tutorials.",
+      "Solo-built color palette web app using the MERN stack. Features JWT authentication, backend-synced palette collections, and one-click hex code copying.",
     tags: ["React", "Vite", "Node.js", "Express", "MongoDB"],
     githubClient: "https://github.com/Vincent0-8/cent-graphics-client",
     githubServer: "https://github.com/Vincent0-8/cent-graphics-server",
@@ -214,7 +214,7 @@ export const projects: Project[] = [
     slug: "vortex-landing",
     title: "Vortex",
     description:
-      "Sleek SaaS landing page for a cloud edge deployment platform, built with Vue 3 (Composition API), Vite, and Tailwind CSS v4. Features smooth entrance stagger animations, an infinite marquee, interactive FAQ accordion via CSS Grid height transitions, and native IntersectionObserver scroll reveals — with zero external animation libraries.",
+      "Sleek SaaS landing page for a cloud edge deployment platform, built with Vue 3 (Composition API), Vite, and Tailwind CSS v4. Features smooth entrance stagger animations, an infinite marquee, interactive FAQ accordion via CSS Grid height transitions, and native IntersectionObserver scroll reveals.",
     tags: ["Vue.js", "Vite", "TypeScript", "Tailwind CSS", "Vercel"],
     githubClient: "https://github.com/Vincent0-8/Vortex-Vue-landing-page",
     liveUrl: "https://vortex-vue-landing-page.vercel.app/",
