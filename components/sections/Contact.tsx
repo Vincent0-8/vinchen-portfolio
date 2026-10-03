@@ -7,11 +7,17 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
   const email = "me@vincentchenn.com";
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email);
+  const handleCopy = async () => {
+  try {
+    await navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
+  } catch {
+    // Fallback jika permission clipboard ditolak
+    window.location.href = `mailto:${email}`;
+  }
+};
+
 
   return (
     <section id="contact" data-aos="fade-up" className="section">
