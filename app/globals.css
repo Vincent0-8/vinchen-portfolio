@@ -16,6 +16,10 @@
   /* Text */
   --color-text-primary: #1a1a2e;  /* near-black with warm blue tint */
   --color-text-secondary: #6b7280;/* muted gray for supporting text */
+
+  /* Neutral Black & White Tokens */
+  --color-white: #ffffff;
+  --color-black: #121217;
 }
 
 
@@ -43,11 +47,8 @@
 }
 
 html {
-  scroll-padding-top: 5rem;
-}
-
-html[data-scroll-behavior="smooth"] {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
