@@ -3,20 +3,20 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import Link from "next/link";
 import { certificationsList } from "@/data/certifications";
-import { TbX } from "react-icons/tb";
-
+import { TbX, TbArrowRight } from "react-icons/tb";
 
 export default function Certification() {
-    
     const [activeCertImage, setActiveCertImage] = useState<string | null>(null);
+    const featuredCertifications = certificationsList.slice(0, 3);
 
     return (
         <section id="certifications" data-aos="fade-up" className="container max-w-4xl py-20">
         
         {/* 1. Centered Section Header */}
         <p className="text-accent text-sm font-medium text-center tracking-widest mb-2">
-            Licenses & Credentials
+            Licenses & Certifications
         </p>
         <h2 className="text-3xl font-bold text-center text-(--color-text-primary) mb-12">
             Certifications
@@ -24,7 +24,7 @@ export default function Certification() {
 
         {/* 2. List Wrapper */}
         <div className="space-y-10">
-            {certificationsList.map((cert) => (
+            {featuredCertifications.map((cert) => (
             <div 
                 key={cert.id} 
                 className="flex flex-col sm:flex-row gap-1 sm:gap-8 group"
@@ -63,15 +63,16 @@ export default function Certification() {
             ))}
         </div>
 
-        {/* 3. Bottom Action: View All in separated page (Future Development) */}
-        {/* <div className="text-center pt-10">
-            <a 
-            href="#certifications" 
-            className="no-underline inline-flex items-center gap-1.5 text-sm font-medium text-(--color-text-secondary) hover:text-accent transition-colors"
+        {/* 3. Bottom Action: Explore All in dedicated sub-page */}
+        <div className="flex justify-center pt-12">
+            <Link
+                href="/certifications"
+                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-(--color-border) bg-white hover:bg-(--color-accent) text-(--color-text-primary) hover:text-white font-medium transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 cursor-pointer"
             >
-            View All Certifications <TbChevronRight size={16} />
-            </a>
-        </div> */}
+                <span>Explore All Certifications ({certificationsList.length})</span>
+                <TbArrowRight className="text-(--color-text-primary) transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white" />
+            </Link>
+        </div>
 
         {/* Modal Lightbox Zoom via React Portal */}
         {activeCertImage && typeof document !== "undefined" && createPortal(

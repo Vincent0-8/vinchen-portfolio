@@ -51,4 +51,5 @@ export interface CertificationItem {
   imageUrl?: string;
   credentialUrl?: string;
   skills?: string[];
+  category?: string;
 }
