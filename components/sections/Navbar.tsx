@@ -1,12 +1,23 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { TbMenu2, TbX } from "react-icons/tb";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const navLinks = [
+    { name: "Projects", href: isHome ? "#projects" : "/#projects" },
+    { name: "Skills", href: isHome ? "#skills" : "/#skills" },
+    { name: "Education", href: isHome ? "#education" : "/#education" },
+    { name: "Certifications", href: isHome ? "#certifications" : "/#certifications" },
+    { name: "Contact", href: isHome ? "#contact" : "/#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,11 +69,16 @@ export default function Navbar() {
 
         {/* 2. Desktop Navigation */}
         <ul className="list-none hidden md:flex gap-8">
-          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#projects">Projects</a></li>
-          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#skills">Skills</a></li>
-          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#education">Education</a></li>
-          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#certifications">Certifications</a></li>
-          <li><a className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium" href="#contact">Contact</a></li>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a
+                className="no-underline text-(--color-text-secondary) hover:text-accent transition-colors duration-200 text-sm font-medium"
+                href={link.href}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* 3. Mobile Hamburger Button */}
@@ -79,41 +95,16 @@ export default function Navbar() {
         {/* 4. Mobile Dropdown Menu */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-(--color-border) py-6 px-6 shadow-xl md:hidden flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
-              href="#projects"
-            >
-              Projects
-            </a>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
-              href="#skills"
-            >
-              Skills
-            </a>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
-              href="#education"
-            >
-              Education
-            </a>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
-              href="#certifications"
-            >
-              Certifications
-            </a>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
-              href="#contact"
-            >
-              Contact
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                onClick={() => setIsMenuOpen(false)}
+                className="no-underline text-(--color-text-primary) hover:text-accent font-medium text-base py-1 transition-colors"
+                href={link.href}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         )}
       </nav>
