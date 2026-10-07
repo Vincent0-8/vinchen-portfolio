@@ -62,7 +62,7 @@ export default function CertificationsPage() {
             All Certifications
           </h1>
           <p className="text-(--color-text-secondary) text-sm text-center sm:text-base leading-relaxed max-w-2xl mx-auto">
-            A complete record of licenses and certifications earned across Full Stack Web Development, REST APIs, AI, and Agile practices.
+            A complete record of licenses and certifications earned.
           </p>
         </div>
 
