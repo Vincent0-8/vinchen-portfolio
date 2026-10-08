@@ -284,7 +284,7 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-(--color-text-secondary) text-sm sm:text-base leading-relaxed">
-            A showcase of recent web applications and platforms I&apos;ve built, focusing on performance, usability, and modern architecture.
+            A collection of recent web projects I&apos;ve built.
           </p>
         </div>
 

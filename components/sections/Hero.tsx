@@ -65,27 +65,21 @@ export default function Hero() {
       {/* 2. Headline Title */}
       <div className="mb-4 flex">
         <h2 className="text-lg sm:text-xl font-bold text-(--color-text-primary)">
-          Full-stack Web Developer <span className="text-(--color-text-secondary) font-normal">— MERN Stack & TypeScript</span>
+          Full-stack Web Developer <span className="text-(--color-text-secondary) font-normal">— MERN Stack | TypeScript | Next.js</span>
         </h2>
       </div>
 
       {/* 3. Bio Description */}
       <p className="text-(--color-text-secondary) leading-relaxed text-sm sm:text-base max-w-6xl mb-8">
-        Full-stack Web Developer with hands-on experience in full-stack MERN development, specializing in building clean and performant web applications with{" "}
-        <span className="inline-flex items-center font-medium text-accent bg-accent/10 px-2 py-0.5 rounded text-xs">
-          React
-        </span>{" "}
+        Full-stack developer focused on building clean and responsive websites using the MERN stack working around{" "}
         <span className="inline-flex items-center font-medium text-accent bg-accent/10 px-2 py-0.5 rounded text-xs">
           TypeScript
         </span>{" "}
-        <span className="inline-flex items-center font-medium text-accent bg-accent/10 px-2 py-0.5 rounded text-xs">
-          Express
-        </span>{" "}
         and{" "}
         <span className="inline-flex items-center font-medium text-accent bg-accent/10 px-2 py-0.5 rounded text-xs">
-          MongoDB
-        </span>
-        . Backed by robust state management with Redux Toolkit, I focus on transforming complex ideas into scalable, production-ready digital solutions.
+          JavaScript
+        </span>{" "}
+        environment. Experienced in designing and building responsive websites. With focus to translate real world requirements into clean, scalable, and well-documented web solutions.
       </p>
 
       {/* 4. Action Button */}

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vincentchenn.com"),
   title: "Vincent Chen | Full-stack Web Developer",
   description:
-    "Full-stack web developer with hands-on experience in MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+    "Full-stack web developer building responsive websites with the MERN stack, TypeScript, and JavaScript.",
   keywords: [
     "Vincent Chen",
     "Vincent Chenn",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: "https://vincentchenn.com",
     title: "Vincent Chen | Full-stack Web Developer",
     description:
-      "Full-stack web developer with hands-on experience in MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+      "Full-stack web developer building responsive websites with the MERN stack, TypeScript, and JavaScript.",
     siteName: "Vincent Chen Portfolio",
     images: [
       {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vincent Chen | Full-stack Web Developer",
     description:
-      "Full-stack web developer with hands-on experience in MERN development, specializing in building clean and performant web applications with React, TypeScript, Express, and MongoDB.",
+      "Full-stack web developer building responsive websites with the MERN stack, TypeScript, and JavaScript.",
     images: ["/images/og-image.png"],
   },
   robots: {
