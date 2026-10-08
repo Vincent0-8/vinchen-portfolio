@@ -4,11 +4,11 @@ export const educationList: EducationItem[] = [
   {
     id: "uib-university",
     period: "Ongoing",
-    degree: "Bachelor of Information Systems",
+    degree: "Bachelor of Computer Science",
     institution: "Batam International University (UIB)",
     location: "Batam, Indonesia",
     description:
-      "Pursuing a degree in Information Systems with core studies in software engineering, database management systems, and web application development.",
+      "Pursuing a degree in Computer Science with core studies in software engineering, database management systems, and web application development.",
     focus: ["Software Engineering", "Database Systems", "Web Development", "Systems Analysis"],
   },
   {
