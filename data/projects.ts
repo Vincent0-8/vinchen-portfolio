@@ -92,38 +92,6 @@ export const projects: Project[] = [
     ],
   },
 
-  // ── 3. Cent Graphics ───────────────────────────────────────────────────────
-  {
-    slug: "cent-graphics",
-    title: "Cent Graphics",
-    description:
-      "Solo-built color palette web app using the MERN stack. Features JWT authentication, backend-synced palette collections, and one-click hex code copying.",
-    tags: ["React", "Vite", "Node.js", "Express", "MongoDB"],
-    githubClient: "https://github.com/Vincent0-8/cent-graphics-client",
-    githubServer: "https://github.com/Vincent0-8/cent-graphics-server",
-    liveUrl: "https://cent-graphics.vercel.app/",
-    imageUrl: "/images/projects/cent-graphics/Hero.webp",
-    featured: true,
-    screenshots: [
-      {
-        title: "Landing Page & Brand Identity",
-        imageUrl: "/images/projects/cent-graphics/Hero.webp",
-      },
-      {
-        title: "Curated Color Palettes Collection",
-        imageUrl: "/images/projects/cent-graphics/Palette.webp",
-      },
-      {
-        title: "User Saved Palette Collection",
-        imageUrl: "/images/projects/cent-graphics/Collection-SavedPalette.webp",
-      },
-      {
-        title: "Multi-Device Responsive Showcase",
-        imageUrl: "/images/projects/cent-graphics/Responsive-Showcase.webp",
-      },
-    ],
-  },
-
   // ── 4. Nova Landing Page ───────────────────────────────────────────────────
   {
     slug: "nova-landing",
@@ -190,9 +158,9 @@ export const projects: Project[] = [
       "Modern SaaS landing page for a productivity app, built with Nuxt 3 (SSG) and Tailwind CSS v4. Implements Vue 3 Composition API with modular Single File Components, accessible modal dialogs, toast notification system, and AOS scroll animations.",
     tags: ["Nuxt.js", "Vue.js", "TypeScript", "Tailwind CSS", "Vercel"],
     githubClient: "https://github.com/Vincent0-8/NexTidy-Vue-landing-page",
-    liveUrl: "https://nex-tidy-vue-landing-page.vercel.app/",
+    liveUrl: "https://nextidy-vue-landing-page.vercel.app/",
     imageUrl: "/images/projects/landing/hero-landing/nexTidy-hero.webp",
-    featured: false,
+    featured: true,
     screenshots: [
       {
         title: "Hero & Above the Fold",
@@ -232,6 +200,38 @@ export const projects: Project[] = [
       {
         title: "Lighthouse Performance Audit",
         imageUrl: "/images/projects/landing/lighthouse/vortex-lighthouse.webp",
+      },
+    ],
+  },
+
+  // ── Cent Graphics ───────────────────────────────────────────────────────
+  {
+    slug: "cent-graphics",
+    title: "Cent Graphics",
+    description:
+      "Solo-built color palette web app using the MERN stack. Features JWT authentication, backend-synced palette collections, and one-click hex code copying.",
+    tags: ["React", "Vite", "Node.js", "Express", "MongoDB"],
+    githubClient: "https://github.com/Vincent0-8/cent-graphics-client",
+    githubServer: "https://github.com/Vincent0-8/cent-graphics-server",
+    liveUrl: "https://cent-graphics.vercel.app/",
+    imageUrl: "/images/projects/cent-graphics/Hero.webp",
+    featured: false,
+    screenshots: [
+      {
+        title: "Landing Page & Brand Identity",
+        imageUrl: "/images/projects/cent-graphics/Hero.webp",
+      },
+      {
+        title: "Curated Color Palettes Collection",
+        imageUrl: "/images/projects/cent-graphics/Palette.webp",
+      },
+      {
+        title: "User Saved Palette Collection",
+        imageUrl: "/images/projects/cent-graphics/Collection-SavedPalette.webp",
+      },
+      {
+        title: "Multi-Device Responsive Showcase",
+        imageUrl: "/images/projects/cent-graphics/Responsive-Showcase.webp",
       },
     ],
   },
