@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     url: "https://vincentchenn.com",
     jobTitle: "Full-stack Web Developer",
     sameAs: [
-      "https://github.com/Vincent0-8",
+      "https://github.com/VincenttChenn",
       "https://www.linkedin.com/in/vincent-chenn/",
     ],
     knowsAbout: [

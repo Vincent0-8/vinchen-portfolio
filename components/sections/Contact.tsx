@@ -116,7 +116,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://github.com/Vincent0-8"
+              href="https://github.com/VincenttChenn"
               target="_blank"
               rel="noopener noreferrer"
               className="no-underline inline-flex items-center justify-center gap-1.5 bg-(--color-surface) border border-accent text-accent text-xs font-medium py-2 px-3 rounded-lg hover:bg-accent hover:text-white transition-colors cursor-pointer"

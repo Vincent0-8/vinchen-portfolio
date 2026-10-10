@@ -34,7 +34,7 @@ export default function Hero() {
           {/* Micro Social Icons */}
           <div className="flex items-center gap-3 text-(--color-text-secondary)">
             <a
-              href="https://github.com/Vincent0-8"
+              href="https://github.com/VincenttChenn"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
